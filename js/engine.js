@@ -69,13 +69,16 @@ Library.prototype.getBookByAuthor = function (author) {
 Library.prototype.addBooks = function (books) {
   var numberOfAdds = 0
   for(var i=0; i <books.length; i++) {
-      this.addBook(books);
-      if(this.addBook(books) === true) {
+      if(this.addBook(books[i])) {
         ++numberOfAdds;
       };
     };
-    return numberOfAdds;
-  };
+  return numberOfAdds;
+};
+
+Library.prototype.getAuthors = function () {
+
+}
 
 
 document.addEventListener("DOMContentLoaded", function(e){
