@@ -66,9 +66,17 @@ Library.prototype.getBookByAuthor = function (author) {
   return booksWithAuthor;
 };
 
-Library.prototype.addBooks = function (books) {
+Library.prototype.addBooks = function (book) {
+  var numberOfAdds = 0
+  for(var i=0; i <book.length; i++) {
+      addBook(book);
+      if(addBook(book) === true) {
+        ++numberOfAdds;
+      };
+    };
+    return numberOfAdds;
+  };
 
-};
 
 document.addEventListener("DOMContentLoaded", function(e){
   window.gLibrary = new Library();
