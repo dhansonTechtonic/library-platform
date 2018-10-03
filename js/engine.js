@@ -66,11 +66,11 @@ Library.prototype.getBookByAuthor = function (author) {
   return booksWithAuthor;
 };
 
-Library.prototype.addBooks = function (book) {
+Library.prototype.addBooks = function (books) {
   var numberOfAdds = 0
-  for(var i=0; i <book.length; i++) {
-      addBook(book);
-      if(addBook(book) === true) {
+  for(var i=0; i <books.length; i++) {
+      this.addBook(books);
+      if(this.addBook(books) === true) {
         ++numberOfAdds;
       };
     };
