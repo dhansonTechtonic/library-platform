@@ -78,7 +78,11 @@ Library.prototype.addBooks = function (books) {
 
 Library.prototype.getAuthors = function () {
 
-}
+};
+
+Library.prototype.getRandomAuthorName() {
+
+};
 
 
 document.addEventListener("DOMContentLoaded", function(e){
