@@ -113,7 +113,7 @@ Library.prototype.getRandomAuthorName = function () {
   };
 };
 
-Library.prototype.theBigOrSearch = function (book) {
+Library.prototype.theBigSearch = function (book) {
   var bookResults = new Array();
   if (book.hasOwnProperty("title")){
     for (i = 0; i < this.bookShelf.length; i++) {
@@ -149,28 +149,6 @@ Library.prototype.theBigOrSearch = function (book) {
 
   return bookResults;
 };
-
-Library.prototype.theBigAndSearch = function (book) {
-  var bookResults = new Array();
-  if (Object.keys(book).length = 1){
-
-  };
-
-  if (Object.keys(book).length = 2){
-
-  };
-
-  if (Object.keys(book).length = 3){
-
-  };
-
-  if (Object.keys(book).length = 4){
-
-  };
-
-  return bookResults;
-};
-
 
 document.addEventListener("DOMContentLoaded", function(e){
   window.gLibrary = new Library();
