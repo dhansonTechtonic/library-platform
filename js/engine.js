@@ -77,11 +77,32 @@ Library.prototype.addBooks = function (books) {
 };
 
 Library.prototype.getAuthors = function () {
-
+  //go through array and find author names
+  //rule out duplicate author names
+  //return the names as an array of strings
+  var foundAuthors = new Array();
+    if (this.bookShelf.length === 0) {
+    return foundAuthors;
+    }else {
+    foundAuthors.push(this.bookShelf[0].author);
+    };
+  for(i = 0 ; i < this.bookShelf.length; i++){
+    for(x = 0; x < foundAuthors.length; x++){
+      if (!(foundAuthors.includes(this.bookShelf[i].author))){
+        foundAuthors.push(this.bookShelf[i].author);
+      };
+    };
+  };
+  return foundAuthors;
 };
 
-Library.prototype.getRandomAuthorName() {
-
+Library.prototype.getRandomAuthorName = function () {
+  var randomAuthor = this.bookShelf[Math.floor(Math.random()*this.bookShelf.length)];
+    if(this.bookShelf.length > 0) {
+      return randomAuthor.author;
+    }else {
+      return null;
+  };
 };
 
 
