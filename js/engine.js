@@ -102,6 +102,64 @@ Library.prototype.getRandomAuthorName = function () {
   };
 };
 
+Library.prototype.theBigOrSearch = function (book) {
+  var bookResults = new Array();
+  if (book.hasOwnProperty("title")){
+    for (i = 0; i < this.bookShelf.length; i++) {
+      if (book.title == this.bookShelf[i].title) {
+        bookResults.push(this.bookShelf[i]);
+      };
+    };
+  };
+
+  if (book.hasOwnProperty("author")){
+    for (i = 0; i < this.bookShelf.length; i++) {
+      if (book.author == this.bookShelf[i].author) {
+        bookResults.push(this.bookShelf[i]);
+      };
+    };
+  };
+
+  if (book.hasOwnProperty("numPages")){
+    for (i = 0; i < this.bookShelf.length; i++) {
+      if (book.numPages == this.bookShelf[i].numPages) {
+        bookResults.push(this.bookShelf[i]);
+      };
+    };
+  };
+
+  if (book.hasOwnProperty("pubDate")){
+    for (i = 0; i < this.bookShelf.length; i++) {
+      if (book.pubDate == this.bookShelf[i].pubDate) {
+        bookResults.push(this.bookShelf[i]);
+      };
+    };
+  };
+
+  return bookResults;
+};
+
+Library.prototype.theBigAndSearch = function (book) {
+  var bookResults = new Array();
+  if (book.hasOwnProperty("title")){
+
+  };
+
+  if (book.hasOwnProperty("author")){
+
+  };
+
+  if (book.hasOwnProperty("numPages")){
+
+  };
+
+  if (book.hasOwnProperty("pubDate")){
+
+  };
+
+  return bookResults;
+};
+
 
 document.addEventListener("DOMContentLoaded", function(e){
   window.gLibrary = new Library();
