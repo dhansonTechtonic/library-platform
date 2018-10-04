@@ -45,7 +45,7 @@ Library.prototype.getRandomBook = function () {
 Library.prototype.getBookByTitle = function (title) {
   var booksWithTitle = new Array();
   for(var i=0; i <this.bookShelf.length; i++) {
-    if(this.bookShelf[i].title.includes(title) || this.bookShelf[i].title === title) {
+    if(this.bookShelf[i].title.toLowerCase().includes(title.toLowerCase()) || this.bookShelf[i].title.toLowerCase() === title.toLowerCase()) {
       var theRightBook = this.bookShelf[i].title;
       booksWithTitle.push(theRightBook);
     };
@@ -57,7 +57,7 @@ Library.prototype.getBookByTitle = function (title) {
 Library.prototype.getBookByAuthor = function (author) {
   var booksWithAuthor = new Array();
   for(var i=0; i <this.bookShelf.length; i++) {
-    if(this.bookShelf[i].author.includes(author) || this.bookShelf[i].author === author) {
+    if(this.bookShelf[i].author.toLowerCase().includes(author.toLowerCase()) || this.bookShelf[i].author.toLowerCase() === author.toLowerCase()) {
       var theRightAuthor = this.bookShelf[i].title;
       booksWithAuthor.push(theRightAuthor);
     };
