@@ -1,6 +1,17 @@
-function Library(){
-  this.bookShelf = new Array();
-};
+//function Library(){
+//  this.bookShelf = new Array();
+//};
+
+(function() {
+ var instance;
+ Library = function() {
+   if (instance) {
+     return instance;
+   }
+   instance = this;
+   this.bookShelf = new Array();
+ }
+})();
 
 Library.prototype.addBook = function (book) {
   for(var i=0; i <this.bookShelf.length; i++) {
@@ -141,19 +152,19 @@ Library.prototype.theBigOrSearch = function (book) {
 
 Library.prototype.theBigAndSearch = function (book) {
   var bookResults = new Array();
-  if (book.hasOwnProperty("title")){
+  if (Object.keys(book).length = 1){
 
   };
 
-  if (book.hasOwnProperty("author")){
+  if (Object.keys(book).length = 2){
 
   };
 
-  if (book.hasOwnProperty("numPages")){
+  if (Object.keys(book).length = 3){
 
   };
 
-  if (book.hasOwnProperty("pubDate")){
+  if (Object.keys(book).length = 4){
 
   };
 
