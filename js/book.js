@@ -2,11 +2,26 @@ function Book(title, author, numPages, pubDate){
   this.title = title;
   this.author = author;
   this.numPages = numPages;
-  this.pubDate = pubDate;
+  this.pubDate = new Date(pubDate);
 };
 
-Book.prototype.editBook = function(oBook){
+Book.prototype.editBook = function (obook) {
+  //to input a book and edited information
+  //loop through the specified book and see if it has the properties I specified
+  //if it does then replace the information there to what i have inputted
+  if (obook.hasOwnProperty("title")){
+    this.title = obook.title;
+  };
 
+  if (obook.hasOwnProperty("author")){
+    this.author = obook.author;
+  };
+
+  if (obook.hasOwnProperty("numPages")){
+    this.numPages = obook.numPages;
+  };
+
+  return obook;
 };
 /*
 //Publish Dates----------------------------------------------------------------
