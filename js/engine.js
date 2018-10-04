@@ -1,8 +1,8 @@
-//function Library(){
-//  this.bookShelf = new Array();
-//};
+function Library(){
+  this.bookShelf = new Array();
+};
 
-(function() {
+/*(function() {
  var instance;
  Library = function() {
    if (instance) {
@@ -12,6 +12,7 @@
    this.bookShelf = new Array();
  }
 })();
+*/
 
 Library.prototype.addBook = function (book) {
   for(var i=0; i <this.bookShelf.length; i++) {
@@ -124,7 +125,7 @@ Library.prototype.theBigSearch = function(entry) {
     beforeResults.push(this.getBookByAuthor(userEntry[i]));
     beforeResults.push(this.getBookByTitle(userEntry[i]));
   };
-  
+
   var afterResults = new Array().concat.apply([],beforeResults);
 
   actualResults = afterResults.filter(function(value,index,self){
@@ -135,18 +136,27 @@ Library.prototype.theBigSearch = function(entry) {
   };
 
 Library.prototype.setLibrary = function () {
-  localStorage.setItem("storedStuff", JSON.stringify(this.bookShelf))
+  localStorage.setItem("storedStuff", JSON.stringify(this.bookShelf));
   return "Library Saved";
 };
 
 Library.prototype.getLibrary = function () {
-  this.bookShelf = =JSON.parse(localStorage.getItem("setLibrary"));
-  for( var i = 0, i < this.bookShelf.length, i++) {
-    this.bookShelf[i] = new Book(this.bookShelf[i].title, this.bookShelf[i].author, this.bookShelf[i].numPages, this.bookShelf[i].pubDate);
+  this.bookShelf = JSON.parse(localStorage.getItem("storedStuff"));
+  for( var i = 0; i < this.bookShelf.length; i++) {
+    this.bookShelf[i] = new Book(this.bookShelf[i].title,
+                                 this.bookShelf[i].author,
+                                 this.bookShelf[i].numPages,
+                                 this.bookShelf[i].pubDate);
   };
 };
 
 
 document.addEventListener("DOMContentLoaded", function(e){
   window.gLibrary = new Library();
+  if (localStorage.getItem("storedStuff")) {
+    gLibrary.getLibrary();
+    console.log("Library found");
+  }else {
+    console.log("No library");
+  };
 });
