@@ -77,9 +77,6 @@ Library.prototype.addBooks = function (books) {
 };
 
 Library.prototype.getAuthors = function () {
-  //go through array and find author names
-  //rule out duplicate author names
-  //return the names as an array of strings
   var foundAuthors = new Array();
     if (this.bookShelf.length === 0) {
     return foundAuthors;
