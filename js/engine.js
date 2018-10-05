@@ -96,7 +96,6 @@ Library.prototype.getBookByTitle = function (title) {
   return booksWithTitle;
 };
 
-
 //getBookByAuthor: same as getBookByTitle but with authors
 Library.prototype.getBookByAuthor = function (author) {
   var booksWithAuthor = [];
@@ -195,7 +194,6 @@ Library.prototype.setLibrary = function () {
   return "Library Saved";
 };
 
-
 /*
 getLibrary: I want to get and information that changed from the localStorage
 and make it an object again
@@ -208,7 +206,6 @@ Library.prototype.getLibrary = function () {
     this.bookShelf[i] = new Book(this.bookShelf[i].title, this.bookShelf[i].author, this.bookShelf[i].numPages, this.bookShelf[i].pubDate);
   };
 };
-
 
 document.addEventListener("DOMContentLoaded", function(e){
   window.gLibrary = new Library();
