@@ -141,10 +141,7 @@ Library.prototype.setLibrary = function () {
 Library.prototype.getLibrary = function () {
   this.bookShelf = JSON.parse(localStorage.getItem("storedStuff"));
   for( var i = 0; i < this.bookShelf.length; i++) {
-    this.bookShelf[i] = new Book(this.bookShelf[i].title,
-                                 this.bookShelf[i].author,
-                                 this.bookShelf[i].numPages,
-                                 this.bookShelf[i].pubDate);
+    this.bookShelf[i] = new Book(this.bookShelf[i].title, this.bookShelf[i].author, this.bookShelf[i].numPages, this.bookShelf[i].pubDate);
   };
 };
 
