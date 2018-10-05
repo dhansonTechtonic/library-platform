@@ -1,7 +1,3 @@
-//function Library(){
-  //this.bookShelf = new Array();
-//};
-
 (function() {
  var instance;
  Library = function() {
