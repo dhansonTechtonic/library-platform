@@ -37,13 +37,18 @@ Library.prototype.removeBookByTitle = function (title) {
 };
 
 Library.prototype.removeBookByAuthor = function (author) {
+  var booksRemoved = 0;
   for(var i=0; i <this.bookShelf.length; i++) {
     if(this.bookShelf[i].author === author) {
       this.bookShelf.splice(i,1);
-      return true;
+      this.setLibrary();
+      booksRemoved++;
+      i--;
     };
   };
-  this.setLibrary();
+  if (booksRemoved > 0) {
+    return true;
+  }
   return false;
 };
 
@@ -59,9 +64,8 @@ Library.prototype.getRandomBook = function () {
 Library.prototype.getBookByTitle = function (title) {
   var booksWithTitle = new Array();
   for(var i=0; i <this.bookShelf.length; i++) {
-    if(this.bookShelf[i].title.toLowerCase().includes(title.toLowerCase()) || this.bookShelf[i].title.toLowerCase() === title.toLowerCase()) {
-      var theRightBook = this.bookShelf[i].title;
-      booksWithTitle.push(theRightBook);
+    if(this.bookShelf[i].title.toLowerCase().indexOf(title.toLowerCase()) > -1) {
+      booksWithTitle.push(this.bookShelf[i]);
     };
 
   };
@@ -71,9 +75,8 @@ Library.prototype.getBookByTitle = function (title) {
 Library.prototype.getBookByAuthor = function (author) {
   var booksWithAuthor = new Array();
   for(var i=0; i <this.bookShelf.length; i++) {
-    if(this.bookShelf[i].author.toLowerCase().includes(author.toLowerCase()) || this.bookShelf[i].author.toLowerCase() === author.toLowerCase()) {
-      var theRightAuthor = this.bookShelf[i].title;
-      booksWithAuthor.push(theRightAuthor);
+    if(this.bookShelf[i].author.toLowerCase().indexOf(author.toLowerCase()) > -1) {
+      booksWithAuthor.push(this.bookShelf[i]);
     };
 
   };
@@ -119,19 +122,14 @@ Library.prototype.getRandomAuthorName = function () {
 
 Library.prototype.theBigSearch = function(entry) {
   userEntry = entry.split(" ");
-
   var beforeResults = new Array();
   for (var i = 0; i < userEntry.length; i++) {
-    beforeResults.push(this.getBookByAuthor(userEntry[i]));
     beforeResults.push(this.getBookByTitle(userEntry[i]));
+    beforeResults.push(this.getBookByAuthor(userEntry[i]));
   };
-
   var afterResults = new Array().concat.apply([],beforeResults);
-
   actualResults = afterResults.filter(function(value,index,self){
-  return self.indexOf(value) === index;
-  });
-
+  return self.indexOf(value) === index;});
   return actualResults;
   };
 
