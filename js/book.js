@@ -52,5 +52,5 @@ gLibrary.theBigSearch("adams william")
 
 gLibrary.bookShelf[0].editBook({title:"The Giver"})
 
-gLibrary.bookShelf[0].editBook({title:"Hola Senor"})
+gLibrary.bookShelf[0].editBook({title:"Lady of the Flies"})
 */
