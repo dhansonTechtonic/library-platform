@@ -47,5 +47,5 @@ gLibrary.getRandomAuthorName()
 
 gLibrary.theBigSearch("the Adams William")
 
-gLibrary.bookShelf[0].editBook("Lady of the Flies")
+gLibrary.bookShelf[0].editBook(["Lady of the Flies"])
 */
