@@ -18,7 +18,7 @@ Book.prototype.editBook = function (obook) {
   if (obook.hasOwnProperty("numPages")){
     this.numPages = obook.numPages;
   };
-
+  this.setLibrary();
   return obook;
 };
 /*

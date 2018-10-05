@@ -1,3 +1,4 @@
+//singleton: makes sure all libraries point back to one
 (function() {
  var instance;
  Library = function() {
@@ -5,11 +6,14 @@
      return instance;
    }
    instance = this;
-   this.bookShelf = new Array();
+   this.bookShelf = [];
  }
 })();
 
-
+//addBook: I want to loop through the bookShelf and see if there are already books with that title.
+//If there are then return false and don't add a book
+//If there aren't then add the book to the bookShelf array
+//Then send the updates to the localStorage and return true to make sure the
 Library.prototype.addBook = function (book) {
   for(var i=0; i <this.bookShelf.length; i++) {
     if(this.bookShelf[i].title === book.title) {
@@ -58,7 +62,7 @@ Library.prototype.getRandomBook = function () {
 };
 
 Library.prototype.getBookByTitle = function (title) {
-  var booksWithTitle = new Array();
+  var booksWithTitle = [];
   for(var i=0; i <this.bookShelf.length; i++) {
     if(this.bookShelf[i].title.toLowerCase().indexOf(title.toLowerCase()) > -1) {
       booksWithTitle.push(this.bookShelf[i]);
@@ -69,7 +73,7 @@ Library.prototype.getBookByTitle = function (title) {
 };
 
 Library.prototype.getBookByAuthor = function (author) {
-  var booksWithAuthor = new Array();
+  var booksWithAuthor = [];
   for(var i=0; i <this.bookShelf.length; i++) {
     if(this.bookShelf[i].author.toLowerCase().indexOf(author.toLowerCase()) > -1) {
       booksWithAuthor.push(this.bookShelf[i]);
@@ -91,7 +95,7 @@ Library.prototype.addBooks = function (books) {
 };
 
 Library.prototype.getAuthors = function () {
-  var foundAuthors = new Array();
+  var foundAuthors = [];
     if (this.bookShelf.length === 0) {
     return foundAuthors;
     }else {
@@ -118,12 +122,12 @@ Library.prototype.getRandomAuthorName = function () {
 
 Library.prototype.theBigSearch = function(entry) {
   userEntry = entry.split(" ");
-  var beforeResults = new Array();
+  var beforeResults = [];
   for (var i = 0; i < userEntry.length; i++) {
     beforeResults.push(this.getBookByTitle(userEntry[i]));
     beforeResults.push(this.getBookByAuthor(userEntry[i]));
   };
-  var afterResults = new Array().concat.apply([],beforeResults);
+  var afterResults = new [].concat.apply([],beforeResults);
   actualResults = afterResults.filter(function(value,index,self){
   return self.indexOf(value) === index;});
   return actualResults;
