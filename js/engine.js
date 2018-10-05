@@ -144,7 +144,7 @@ Library.prototype.getAuthors = function () {
     };
   for(i = 0 ; i < this.bookShelf.length; i++){
     for(x = 0; x < foundAuthors.length; x++){
-      if (!(foundAuthors.includes(this.bookShelf[i].author))){
+      if (!(foundAuthors.indexOf(this.bookShelf[i].author) > -1)){
         foundAuthors.push(this.bookShelf[i].author);
       };
     };

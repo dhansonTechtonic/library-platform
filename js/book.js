@@ -7,7 +7,7 @@ function Book(title, author, numPages, pubDate){
 
 Book.prototype.editBook = function (obook) {
   for(var i = 0; i < gLibrary.bookShelf.length; i++) {
-    if (obook.hasOwnProperty("title") && ((obook.title.toLowerCase().trim()) !== (gLibrary.bookShelf[i].title.toLowerCase().trim()))){
+    if (obook.hasOwnProperty("title") && ((obook.title.toLowerCase().trim()) !== (gLibrary.bookShelf[i].title.toLowerCase().trim()))) {
       this.title = obook.title;
     }else {
       return false;
