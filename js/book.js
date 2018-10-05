@@ -35,7 +35,11 @@ gLibrary.getRandomBook()
 
 gLibrary.getBookByTitle("The Rise and Fall of Darth Vader")
 
+gLibrary.getBookByTitle("ing")
+
 gLibrary.getBookByAuthor("Dean Koontz")
+
+gLibrary.getBookByAuthor("&")
 
 gLibrary.getAuthors()
 
