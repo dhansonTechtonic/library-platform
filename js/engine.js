@@ -160,13 +160,13 @@ Library.prototype.getRandomAuthorName = function () {
 //get rid of duplicates
 //Then return the merged results
 Library.prototype.theBigSearch = function(entry) {
-  userEntry = entry.split(" ").toLowerCase().trim();
+  userEntry = entry.split(" ");
   var beforeResults = [];
   for (var i = 0; i < userEntry.length; i++) {
     beforeResults.push(this.getBookByTitle(userEntry[i]));
     beforeResults.push(this.getBookByAuthor(userEntry[i]));
   };
-  var afterResults = new [].concat.apply([],beforeResults);
+  var afterResults = [].concat.apply([],beforeResults);
   actualResults = afterResults.filter(function(value,index,self){
   return self.indexOf(value) === index;});
   return actualResults;
