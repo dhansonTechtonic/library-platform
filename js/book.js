@@ -6,19 +6,22 @@ function Book(title, author, numPages, pubDate){
 };
 
 Book.prototype.editBook = function (obook) {
+  for(var i = 0; i < gLibrary.bookShelf.length; i++) {
+    if (obook.hasOwnProperty("title") && ((obook.title.toLowerCase().trim()) !== (gLibrary.bookShelf[i].title.toLowerCase().trim()))){
+      this.title = obook.title;
+    }else {
+      return false;
+    };
 
-  if (obook.hasOwnProperty("title")){
-    this.title = obook.title;
-  };
+    if (obook.hasOwnProperty("author")){
+      this.author.toLowerCase().trim() = obook.author.toLowerCase().trim();
+    };
 
-  if (obook.hasOwnProperty("author")){
-    this.author = obook.author;
+    if (obook.hasOwnProperty("numPages")){
+      this.numPages.toLowerCase().trim() = obook.numPages.toLowerCase().trim();
+    };
   };
-
-  if (obook.hasOwnProperty("numPages")){
-    this.numPages = obook.numPages;
-  };
-  this.setLibrary();
+  gLibrary.setLibrary();
   return obook;
 };
 /*
@@ -47,5 +50,7 @@ gLibrary.getRandomAuthorName()
 
 gLibrary.theBigSearch("adams william")
 
-gLibrary.bookShelf[0].editBook({title:"Lady of the Flies"})
+gLibrary.bookShelf[0].editBook({title:"The Giver"})
+
+gLibrary.bookShelf[0].editBook({title:"Hola Senor"})
 */
