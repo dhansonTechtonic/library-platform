@@ -1,8 +1,8 @@
-function Library(){
-  this.bookShelf = new Array();
-};
+//function Library(){
+  //this.bookShelf = new Array();
+//};
 
-/*(function() {
+(function() {
  var instance;
  Library = function() {
    if (instance) {
@@ -12,7 +12,7 @@ function Library(){
    this.bookShelf = new Array();
  }
 })();
-*/
+
 
 Library.prototype.addBook = function (book) {
   for(var i=0; i <this.bookShelf.length; i++) {
