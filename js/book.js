@@ -48,7 +48,7 @@ gLibrary.getAuthors()
 
 gLibrary.getRandomAuthorName()
 
-gLibrary.theBigSearch("adams william")
+gLibrary.multiSearch("adams william")
 
 gLibrary.bookShelf[0].editBook({title:"The Giver"})
 

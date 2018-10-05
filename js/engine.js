@@ -172,7 +172,7 @@ Then I want to create a new array that merges results and filters through and
 get rid of duplicates
 Then return the merged results
 */
-Library.prototype.theBigSearch = function(entry) {
+Library.prototype.multiSearch = function(entry) {
   userEntry = entry.split(" ");
   var beforeResults = [];
   for (var i = 0; i < userEntry.length; i++) {
